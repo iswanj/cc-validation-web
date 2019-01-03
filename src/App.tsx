@@ -5,6 +5,7 @@ import { setState } from "./actions";
 
 import { HomeContainer } from "./containers/Home";
 
+import "./index.css";
 interface IProps {
   test: boolean;
   setState: (state: any) => void;

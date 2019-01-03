@@ -34,6 +34,7 @@
   "devDependencies": {
     "@types/react-redux": "^6.0.11",
     "@types/redux-logger": "^3.0.6",
+    "@types/styled-components": "^4.1.4",
     "react-test-renderer": "^16.7.0",
     "react-testing-library": "^5.4.2",
     "redux-devtools": "^3.5.0",

@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 
-import { connect } from "react-redux";
-import { setState } from "../actions";
+import { connect } from 'react-redux';
+import { setState } from '../../actions';
+
+import { Wrapper, Row, Col, Box, Header, Title, Form } from './styles';
 
 interface IHomeProps {
   test: boolean;
@@ -12,16 +14,22 @@ export default class Home extends Component<IHomeProps> {
     this.props.setState({
       test: true
     });
-  }
+  };
 
   public render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <h1>Home</h1>
-          <button onClick={this.handleClick}>click me</button>
-        </header>
-      </div>
+      <Wrapper>
+        <Row>
+          <Col span={12}>
+            <Box>
+              <Header>
+                <Title>Payment Details</Title>
+              </Header>
+              <Form>form data</Form>
+            </Box>
+          </Col>
+        </Row>
+      </Wrapper>
     );
   }
 }
