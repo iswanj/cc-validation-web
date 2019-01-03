@@ -1,9 +1,11 @@
 import { combineReducers } from "redux";
 // import reducers
 import app from "./app";
+import form from "./form";
 
 const appReducer = combineReducers({
-  app
+  app,
+  form
 });
 
 interface Iaction {
