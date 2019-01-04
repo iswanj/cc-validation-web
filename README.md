@@ -1,6 +1,6 @@
 # Credit Card Validation(cc-validation-web)
 
-### Demo URL - https://iswanj.github.io/simple-form-ui-kit/
+### Demo URL - https://iswanj.github.io/cc-validation-web/
 
 ### Run demo locally
 * Install Packages - `yarn`
