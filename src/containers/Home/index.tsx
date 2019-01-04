@@ -17,7 +17,8 @@ import {
   Form,
   InputGroup,
   ButtonContainer,
-  Img
+  Img,
+  LoadingModal
 } from './styles';
 
 import TextInput from '../../components/TextInput';
@@ -28,6 +29,7 @@ interface IHomeProps {
   frmErrors: any;
   setState: (state: any) => void;
   onFieldChange: (state: object) => void;
+  isShowLoading: boolean;
 }
 
 const validationRule = {
@@ -96,12 +98,14 @@ export default class Home extends Component<IHomeProps> {
   };
 
   private handleCheckout = () => {
-    const { frmPayment } = this.props;
+    const { frmPayment, setState } = this.props;
     const validateStatus = validate(validationRule, frmPayment);
     if (isEmpty(validateStatus)) {
-      console.log('save data');
+      setState({
+        isShowLoading: true
+      })
     } else {
-      this.props.setState({
+      setState({
         frmErrors: validateStatus
       });
     }
@@ -138,7 +142,7 @@ export default class Home extends Component<IHomeProps> {
   };
 
   public render() {
-    const { frmPayment, frmErrors } = this.props;
+    const { frmPayment, frmErrors, isShowLoading } = this.props;
     return (
       <Wrapper>
         <Row>
@@ -201,6 +205,12 @@ export default class Home extends Component<IHomeProps> {
             </Box>
           </Col>
         </Row>
+        {isShowLoading && (
+          <LoadingModal>
+            <Img src={process.env.PUBLIC_URL + '/loading.svg'} alt="loading" />
+            Payment Processing
+          </LoadingModal>
+        )}
       </Wrapper>
     );
   }
@@ -209,7 +219,8 @@ export default class Home extends Component<IHomeProps> {
 const mapStateToProps = (state: any) => {
   return {
     frmPayment: state.form.payment,
-    frmErrors: state.app.frmErrors
+    frmErrors: state.app.frmErrors,
+    isShowLoading: state.app.isShowLoading
   };
 };
 export const HomeContainer = connect(

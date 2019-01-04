@@ -81,3 +81,18 @@ export const Img = styled.img`
   width: 24px;
   height: 24px;
 `;
+
+export const LoadingModal = styled.div`
+  display: flex;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(255, 255, 255, 0.9);
+  top: 0;
+  left: 0;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #333;
+  line-height: 1.5;
+`;
