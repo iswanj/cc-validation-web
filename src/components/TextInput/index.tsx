@@ -1,6 +1,6 @@
-import * as React from "react";
+import * as React from 'react';
 
-import { ErrorMsg, Input, InputGroup, Label, Wrapper } from "./styles";
+import { ErrorMsg, Input, InputGroup, Label, Wrapper, InputContainer, ImgContainer } from './styles';
 
 interface IinputProps {
   placeholder?: string;
@@ -10,7 +10,9 @@ interface IinputProps {
   error?: string;
   value: any;
   noLabel?: boolean;
+  small?: boolean;
   onChange: (name: string, value: string) => void;
+  renderIcon?: (value: string) => any;
 }
 
 export default class InputField extends React.Component<IinputProps> {
@@ -26,17 +28,31 @@ export default class InputField extends React.Component<IinputProps> {
   };
 
   public render() {
-    const { inline, noLabel, label, error, value, placeholder } = this.props;
+    const {
+      inline,
+      noLabel,
+      label,
+      error,
+      value,
+      placeholder,
+      renderIcon,
+      small
+    } = this.props;
     return (
-      <Wrapper inline={inline}>
-        {!noLabel && (<Label inline={inline}>{label}</Label>)}
+      <Wrapper inline={inline} small={small}>
+        {!noLabel && <Label inline={inline}>{label}</Label>}
         <InputGroup inline={inline}>
-          <Input
-            placeholder={placeholder}
-            value={value}
-            onChange={this.handleOnChange}
-            error={error}
-          />
+          <InputContainer error={error}>
+            <Input
+              placeholder={placeholder}
+              value={value || ''}
+              onChange={this.handleOnChange}
+              error={error}
+            />
+            <ImgContainer>
+              {renderIcon && renderIcon(value)}
+            </ImgContainer>
+          </InputContainer>
           {error && <ErrorMsg>{error}</ErrorMsg>}
         </InputGroup>
       </Wrapper>

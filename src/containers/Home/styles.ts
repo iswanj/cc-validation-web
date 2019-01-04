@@ -18,7 +18,7 @@ export const Col = styled("div")<{ span: number }>`
   -ms-flex: auto;
   flex-basis: 30%;
   margin: 0 auto;
-  width: 259px;
+  width: 500px;
   position: relative;
   box-sizing: border-box;
 
@@ -61,13 +61,23 @@ export const Form = styled.div`
 
 export const InputGroup = styled.div`
   display: flex;
+  align-items: flex-start;
   flex-grow: 1;
   flex-direction: row;
+
+  @media only screen and (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
 
 export const ButtonContainer = styled.div`
   display: flex;
   flex-grow: 1;
   flex-direction: row;
-  padding: 0 1em;
+  padding: 0 0.5em;
+`;
+
+export const Img = styled.img`
+  width: 24px;
+  height: 24px;
 `;
