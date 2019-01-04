@@ -33,8 +33,6 @@ const reducer: Reducer<IAppState> = (state: any = {}, action) => {
   switch (action.type) {
     case actionTypes.ON_FIELD_CHANGE:
       return setOnChangeData(state, action.payload);
-    case actionTypes.SET_FORM_FIELDS:
-      return setForm(state, action.payload);
     case actionTypes.RESET_FORM:
       return resetForm(state, action.payload);
     default:
