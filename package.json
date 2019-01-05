@@ -2,6 +2,7 @@
   "name": "cc-validation-web",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://iswanj.github.io/cc-validation-web/",
   "dependencies": {
     "@types/jest": "23.3.11",
     "@types/node": "10.12.18",
